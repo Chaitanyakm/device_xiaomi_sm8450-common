@@ -20,7 +20,11 @@ package org.lineageos.settings;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.hardware.display.DisplayManager;
+import android.os.IBinder;
 import android.util.Log;
+import android.view.Display;
+import android.view.Display.HdrCapabilities;
 
 import org.lineageos.settings.doze.DozeUtils;
 import org.lineageos.settings.thermal.ThermalUtils;
@@ -37,5 +41,13 @@ public class BootCompletedReceiver extends BroadcastReceiver {
         DozeUtils.onBootCompleted(context);
         ThermalUtils.startService(context);
         RefreshUtils.startService(context);        
+    }
+    
+    private static void overrideHdrTypes(Context context) {
+        // Override HDR types to enable Dolby Vision
+        final DisplayManager dm = context.getSystemService(DisplayManager.class);
+        dm.overrideHdrTypes(Display.DEFAULT_DISPLAY, new int[]{
+                HdrCapabilities.HDR_TYPE_DOLBY_VISION, HdrCapabilities.HDR_TYPE_HDR10,
+                HdrCapabilities.HDR_TYPE_HLG, HdrCapabilities.HDR_TYPE_HDR10_PLUS});
     }
 }
