@@ -79,7 +79,7 @@ struct disp_base displayBasePrimary = {
 
 }  // anonymous namespace
 
-class XiaomiSm8450UdfpsHander : public UdfpsHandler {
+class XiaomiSm8450UdfpsHandler : public UdfpsHandler {
   public:
     void init(fingerprint_device_t* device) {
         mDevice = device;
@@ -202,7 +202,7 @@ class XiaomiSm8450UdfpsHander : public UdfpsHandler {
 };
 
 static UdfpsHandler* create() {
-    return new XiaomiSm8450UdfpsHander();
+    return new XiaomiSm8450UdfpsHandler();
 }
 
 static void destroy(UdfpsHandler* handler) {
