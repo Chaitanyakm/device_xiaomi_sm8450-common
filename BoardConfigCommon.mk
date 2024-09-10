@@ -193,6 +193,8 @@ TARGET_BOARD_PLATFORM := taro
 
 # Powershare
 TARGET_POWERSHARE_PATH := /sys/class/qcom-battery/reverse_chg_mode
+# Powe
+TARGET_POWERHAL_MODE_EXT := $(COMMON_PATH)/power/power-mode.cpp
 
 # Properties
 TARGET_ODM_PROP += $(COMMON_PATH)/properties/odm.prop
