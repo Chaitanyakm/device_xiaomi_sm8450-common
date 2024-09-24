@@ -96,6 +96,10 @@ function blob_fixup() {
         vendor/lib64/libgrpc++_unsecure_prebuilt.so)
             [ "$2" = "" ] && return 0
             "${PATCHELF_0_17_2}" --set-soname "libgrpc++_unsecure_prebuilt.so" "${2}"
+            ;;    
+        vendor/lib/c2.dolby.client.so)
+            [ "$2" = "" ] && return 0
+            "${PATCHELF}" --add-needed "libcodec2_hidl_shim.so" "${2}"
             ;;
         *)
             return 1
