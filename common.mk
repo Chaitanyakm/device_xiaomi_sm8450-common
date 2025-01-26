@@ -296,8 +296,6 @@ PRODUCT_PACKAGES += \
     LineageResXiaomi \
     SettingsProviderResXiaomi \
     SettingsResXiaomi \
-    WifiResTarget \
-    WifiResTarget_cape \
     WifiResTarget_spf
 
 PRODUCT_PACKAGES += \
