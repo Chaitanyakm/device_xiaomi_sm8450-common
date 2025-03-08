@@ -1,7 +1,6 @@
 # All unpinned blobs below are extracted from diting V816.0.12.0.ULFMIXM
 
 # Current blobs with ELF checks disabled:
-# libcne, libmasc, lowi-server, qms depend on libwpa_client, which is a gnu makefile target
 # libmcs depends on libar-acdb, libagm, libats, liblx-osal which are gnu makefile targets
 # libqc2audio_hwaudiocodec depends on libpalclient, which is a gnu makefile target
 # libqtigefar depends on libar-pal, which is a gnu makefile target
@@ -57,7 +56,7 @@ vendor/lib64/libsdsprpc.so
 # CNE
 vendor/app/CneApp/CneApp.apk;REQUIRED=CneApp.libvndfwk_detect_jni.qti_vendor_symlink
 vendor/bin/cnd
-vendor/bin/qms;DISABLE_CHECKELF
+vendor/bin/qms
 vendor/etc/cne/mwqem.conf
 vendor/etc/cne/profileMwqem.xml
 vendor/etc/cne/wqeclient/ATT/ATT_profile1.xml
@@ -92,11 +91,11 @@ vendor/etc/cne/wqeclient/VZW/VZW_profile7.xml
 vendor/etc/default-permissions/com.qualcomm.qti.cne.xml
 vendor/etc/init/cnd.rc
 vendor/etc/init/qms.rc
-vendor/lib64/libcne.so;DISABLE_CHECKELF
+vendor/lib64/libcne.so
 vendor/lib64/libcneapiclient.so
 vendor/lib64/libcneoplookup.so
 vendor/lib64/libcneqmiutils.so
-vendor/lib64/libmasc.so;DISABLE_CHECKELF
+vendor/lib64/libmasc.so
 vendor/lib64/libshsc.so
 vendor/lib64/libwms.so
 vendor/lib64/libwqe.so
@@ -306,7 +305,7 @@ vendor/lib64/hw/android.hardware.gatekeeper@1.0-impl-qti.so
 vendor/app/CACertService/CACertService.apk|ea18679b8a6cdf4f9f00b7fb5d7a86e12be38f23
 vendor/bin/edgnss-daemon|11e295ebe350de7312a2ab97f25ccbbae48ed8a4
 vendor/bin/loc_launcher|dbc5addc025360fd04dec5b024d476514a6f613f
-vendor/bin/lowi-server;DISABLE_CHECKELF|0a8998f8190c282a14fed9e33691b54a2dc6d3e9
+vendor/bin/lowi-server|0a8998f8190c282a14fed9e33691b54a2dc6d3e9
 vendor/bin/mlid|ab9291752d37ae8165cb78a6a635d48f7a668c70
 vendor/bin/xtra-daemon|e4a632e4b1b6ac75e1921bcd0a17fd0450ccf906
 vendor/etc/init/loc-launcher.rc|2942e599cec7c3491aa170bf9606713ce3d07689
