@@ -10,8 +10,6 @@ include vendor/xiaomi/sm8450-common/BoardConfigVendor.mk
 COMMON_PATH := device/xiaomi/sm8450-common
 
 # A/B
-AB_OTA_UPDATER := true
-
 AB_OTA_PARTITIONS += \
     boot \
     dtbo \
