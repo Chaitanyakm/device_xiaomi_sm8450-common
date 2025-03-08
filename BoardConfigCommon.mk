@@ -10,8 +10,6 @@ COMMON_PATH := device/xiaomi/sm8450-common
 BUILD_BROKEN_ELF_PREBUILT_PRODUCT_COPY_FILES := true
 
 # A/B
-AB_OTA_UPDATER := true
-
 AB_OTA_PARTITIONS += \
     boot \
     dtbo \
