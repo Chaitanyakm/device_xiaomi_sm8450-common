@@ -50,7 +50,6 @@ lib_fixups: lib_fixups_user_type = {
         'libagm',
         'libar-pal',
         'libpalclient',
-        'libwpa_client',
     ): lib_fixup_remove,
 }
 
