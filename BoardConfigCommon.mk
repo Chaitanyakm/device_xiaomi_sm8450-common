@@ -1,5 +1,5 @@
 #
-# Copyright (C) 2022 The LineageOS Project
+# Copyright (C) 2022-2025 The LineageOS Project
 #
 # SPDX-License-Identifier: Apache-2.0
 #
@@ -60,9 +60,6 @@ $(call soong_config_set, ufsbsg, ufsframework, bsg)
 # Bootloader
 TARGET_BOOTLOADER_BOARD_NAME := taro
 TARGET_NO_BOOTLOADER := true
-
-# Camera
-TARGET_CAMERA_OVERRIDE_FORMAT_FROM_RESERVED := true
 
 # Filesystem
 TARGET_FS_CONFIG_GEN := $(COMMON_PATH)/configs/config.fs
