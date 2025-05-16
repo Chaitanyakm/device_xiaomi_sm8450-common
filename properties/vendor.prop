@@ -25,6 +25,7 @@ ro.vendor.audio.soundtrigger.xatx.cnn.level=95
 ro.vendor.audio.soundtrigger.xatx.gmm.level=54
 ro.vendor.audio.soundtrigger.xatx.gmm.user.level=54
 ro.vendor.audio.soundtrigger.xatx.vop.level=0
+ro.vendor.audio.stereo_master_volume=1
 ro.vendor.audio.support.sound.id=true
 vendor.audio.adm.buffering.ms=2
 vendor.audio.feature.a2dp_offload.enable=true
