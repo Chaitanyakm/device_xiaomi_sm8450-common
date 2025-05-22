@@ -1,12 +1,11 @@
 /*
- * Copyright (C) 2022 The LineageOS Project
+ * Copyright (C) 2022-2025 The LineageOS Project
  *
  * SPDX-License-Identifier: Apache-2.0
  */
 
 #define LOG_TAG "UdfpsHandler.xiaomi_sm8450"
 
-#include <aidl/android/hardware/biometrics/fingerprint/BnFingerprint.h>
 #include <android-base/logging.h>
 #include <android-base/properties.h>
 #include <android-base/unique_fd.h>
@@ -36,8 +35,6 @@
 
 #define DISP_FEATURE_PATH "/dev/mi_display/disp_feature"
 #define TOUCH_DEV_PATH "/dev/xiaomi-touch"
-
-using ::aidl::android::hardware::biometrics::fingerprint::AcquiredInfo;
 
 namespace {
 
@@ -186,14 +183,9 @@ class XiaomiSm8450UdfpsHandler : public UdfpsHandler {
         ioctl(touch_fd_.get(), TOUCH_IOC_SET_CUR_VALUE, &touchRequest);
     }
 
-    void onAcquired(int32_t result, int32_t vendorCode) {
-        LOG(DEBUG) << __func__ << " result: " << result << " vendorCode: " << vendorCode;
-        if (static_cast<AcquiredInfo>(result) == AcquiredInfo::GOOD) {
-            onFingerUp();
-        }
-    }
+    void onAuthenticationSucceeded() { onFingerUp(); }
 
-    void cancel() { LOG(DEBUG) << __func__; }
+    void onAuthenticationFailed() { onFingerUp(); }
 
   private:
     fingerprint_device_t* mDevice;
