@@ -386,6 +386,12 @@ vendor/lib64/libllvm-glnext.so
 vendor/lib64/libllvm-qcom.so
 vendor/lib64/libllvm-qgl.so
 
+# Graphics (Adreno firmware)
+vendor/firmware/a660_sqe.fw
+vendor/firmware/a662_gmu.bin
+vendor/firmware/a730_sqe.fw
+vendor/firmware/gmu_gen70000.bin
+
 # Graphics (Vulkan)
 vendor/lib64/hw/vulkan.adreno.so
 
