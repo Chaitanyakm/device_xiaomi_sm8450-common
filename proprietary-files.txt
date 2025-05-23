@@ -1,4 +1,4 @@
-# All unpinned blobs below are extracted from cupid OS2.0.1.0.VLCMIXM
+# All unpinned blobs below are extracted from cupid OS2.0.3.0.VLCMIXM
 
 # Current blobs with ELF checks disabled:
 # libmcs depends on libar-acdb, libagm, libats, liblx-osal which are gnu makefile targets
