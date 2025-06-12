@@ -46,11 +46,11 @@
          value < level[0]                0
          level[n] <= value < level[n+1]  n+1
          level[MAX] <= value             MAX+1 -->
-    <array name="config_screenThresholdLevels">
-        <item>0.5</item>
-        <item>0.6</item>
-        <item>0.9</item>
-    </array>
+    <integer-array name="config_screenThresholdLevels">
+        <item>128</item>
+        <item>153</item>
+        <item>230</item>
+    </integer-array>
 
     <!-- Array of hysteresis constraint values for brightening, represented as tenths of a
          percent. The length of this array is assumed to be one greater than
