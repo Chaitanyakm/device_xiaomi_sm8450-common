@@ -75,7 +75,7 @@ case "$target" in
         esac
         ;;
     "taro")
-        setprop vendor.mm.target.enable.qcom_parser 4096087
+        setprop vendor.mm.target.enable.qcom_parser 0
         case "$soc_hwid" in
             506|547|564)
                 setprop vendor.media.target_variant "_diwali_v2"
