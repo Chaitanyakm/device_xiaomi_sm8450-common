@@ -157,6 +157,7 @@
       "Path": "/proc/sys/walt/sched_busy_hyst_ns",
       "Values": [
         "99000000",
+        "30000000",
         "3000000",
         "0"
       ],
@@ -405,7 +406,7 @@
       "PowerHint": "INTERACTION",
       "Node": "SchedBusyHystNs",
       "Duration": 0,
-      "Value": "99000000"
+      "Value": "30000000"
     },
     {
       "PowerHint": "INTERACTION",
