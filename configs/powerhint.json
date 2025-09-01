@@ -589,6 +589,30 @@
     },
     {
       "PowerHint": "LAUNCH",
+      "Node": "CPUBWHystLength",
+      "Duration": 2000,
+      "Value": "0"
+    },
+    {
+      "PowerHint": "LAUNCH",
+      "Node": "CPUBWHistMemory",
+      "Duration": 2000,
+      "Value": "0"
+    },
+    {
+      "PowerHint": "LAUNCH",
+      "Node": "CPUBWMinFreq",
+      "Duration": 2000,
+      "Value": "3196000"
+    },
+    {
+      "PowerHint": "LAUNCH",
+      "Node": "LLCCBWHystTriggerCount",
+      "Duration": 2000,
+      "Value": "0"
+    },
+    {
+      "PowerHint": "LAUNCH",
       "Node": "LLCCBWHystLength",
       "Duration": 2000,
       "Value": "0"
