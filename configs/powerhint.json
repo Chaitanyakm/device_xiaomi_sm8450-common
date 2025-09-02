@@ -793,6 +793,24 @@
       "Value": "300000"
     },
     {
+      "PowerHint": "TOUCH_DOWN",
+      "Node": "CPULittleClusterMinFreq",
+      "Duration": 200,
+      "Value": "1056000"
+    },
+    {
+      "PowerHint": "TOUCH_DOWN",
+      "Node": "CPUBWMinFreq",
+      "Duration": 200,
+      "Value": "1555000"
+    },
+    {
+      "PowerHint": "TOUCH_UP",
+      "Node": "CPULittleClusterMinFreq",
+      "Duration": 100,
+      "Value": "614400"
+    },
+    {
       "PowerHint": "Flipendo",
       "Node": "CPULittleClusterMaxFreq",
       "Duration": 0,
