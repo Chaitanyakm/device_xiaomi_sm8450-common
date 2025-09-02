@@ -823,6 +823,24 @@
       "Value": "1555000"
     },
     {
+      "PowerHint": "THERMAL_EVENT",
+      "Node": "CPUBigClusterMaxFreq",
+      "Duration": 5000,
+      "Value": "2150400"
+    },
+    {
+      "PowerHint": "THERMAL_EVENT",
+      "Node": "CPULittleClusterMaxFreq",
+      "Duration": 5000,
+      "Value": "1056000"
+    },
+    {
+      "PowerHint": "THERMAL_EVENT",
+      "Node": "CPUBWMinFreq",
+      "Duration": 5000,
+      "Value": "547000"
+    },
+    {
       "PowerHint": "Flipendo",
       "Node": "CPULittleClusterMaxFreq",
       "Duration": 0,
