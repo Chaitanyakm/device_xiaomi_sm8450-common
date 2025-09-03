@@ -824,21 +824,33 @@
     },
     {
       "PowerHint": "THERMAL_EVENT",
-      "Node": "CPUBigClusterMaxFreq",
-      "Duration": 5000,
-      "Value": "2342400"
-    },
-    {
-      "PowerHint": "THERMAL_EVENT",
-      "Node": "CPULittleClusterMaxFreq",
-      "Duration": 5000,
-      "Value": "1056000"
-    },
-    {
-      "PowerHint": "THERMAL_EVENT",
       "Node": "CPUBWMinFreq",
       "Duration": 5000,
       "Value": "547000"
+    },
+    {
+      "PowerHint": "THERMAL_EVENT",
+      "Node": "SchedMinTaskUtilForBoost",
+      "Duration": 5000,
+      "Value": "51"
+    },
+    {
+      "PowerHint": "THERMAL_EVENT",
+      "Node": "SchedMinTaskUtilForUclamp",
+      "Duration": 5000,
+      "Value": "51"
+    },
+    {
+      "PowerHint": "THERMAL_EVENT",
+      "Node": "UclampTAMin",
+      "Duration": 5000,
+      "Value": "0"
+    },
+    {
+      "PowerHint": "THERMAL_EVENT",
+      "Node": "UclampFGMin",
+      "Duration": 5000,
+      "Value": "0"
     },
     {
       "PowerHint": "Flipendo",
