@@ -17,6 +17,7 @@
       "Values": [
         "9999999",
         "1056000",
+        "806400",
         "614400"
       ],
       "ResetOnInit": true
@@ -813,14 +814,14 @@
     {
       "PowerHint": "DISPLAY_UPDATE_IMMINENT",
       "Node": "CPULittleClusterMinFreq",
-      "Duration": 100,
-      "Value": "1056000"
+      "Duration": 80,
+      "Value": "806400"
     },
     {
       "PowerHint": "DISPLAY_UPDATE_IMMINENT",
       "Node": "CPUBWMinFreq",
-      "Duration": 100,
-      "Value": "1555000"
+      "Duration": 80,
+      "Value": "547000"
     },
     {
       "PowerHint": "THERMAL_EVENT",
