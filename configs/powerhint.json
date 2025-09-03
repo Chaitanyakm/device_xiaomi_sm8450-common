@@ -826,7 +826,7 @@
       "PowerHint": "THERMAL_EVENT",
       "Node": "CPUBigClusterMaxFreq",
       "Duration": 5000,
-      "Value": "2150400"
+      "Value": "2342400"
     },
     {
       "PowerHint": "THERMAL_EVENT",
