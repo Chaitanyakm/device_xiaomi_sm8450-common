@@ -698,6 +698,12 @@
       "Value": "600000"
     },
     {
+      "PowerHint": "EXPENSIVE_RENDERING",
+      "Node": "UclampFGMin",
+      "Duration": 0,
+      "Value": "0"
+    },
+    {
       "PowerHint": "DEVICE_IDLE",
       "Node": "CPUBigPlusClusterMinFreq",
       "Duration": 0,
