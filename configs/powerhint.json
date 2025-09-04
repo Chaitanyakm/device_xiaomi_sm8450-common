@@ -802,20 +802,26 @@
     {
       "PowerHint": "TOUCH_DOWN",
       "Node": "CPULittleClusterMinFreq",
-      "Duration": 200,
+      "Duration": 100,
       "Value": "1056000"
     },
     {
       "PowerHint": "TOUCH_DOWN",
       "Node": "CPUBWMinFreq",
-      "Duration": 200,
+      "Duration": 100,
       "Value": "1555000"
     },
     {
+       "PowerHint": "TOUCH_UP",
+       "Node": "UclampFGMin",
+       "Duration": 0,
+       "Value": "0"
+    },
+    {
       "PowerHint": "TOUCH_UP",
-      "Node": "CPULittleClusterMinFreq",
-      "Duration": 100,
-      "Value": "614400"
+      "Node": "UclampTAMin",
+      "Duration": 0,
+      "Value": "0"
     },
     {
       "PowerHint": "DISPLAY_UPDATE_IMMINENT",
