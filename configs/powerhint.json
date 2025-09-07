@@ -707,13 +707,13 @@
       "PowerHint": "DEVICE_IDLE",
       "Node": "CPUBigPlusClusterMinFreq",
       "Duration": 0,
-      "Value": "0"
+      "Value": "787200"
     },
     {
       "PowerHint": "DEVICE_IDLE",
       "Node": "CPUBigClusterMinFreq",
       "Duration": 0,
-      "Value": "0"
+      "Value": "633600"
     },
     {
       "PowerHint": "DEVICE_IDLE",
@@ -725,7 +725,7 @@
       "PowerHint": "DEVICE_IDLE",
       "Node": "GPUMinFreq",
       "Duration": 0,
-      "Value": "220000000"
+      "Value": "285000000"
     },
     {
       "PowerHint": "DEVICE_IDLE",
