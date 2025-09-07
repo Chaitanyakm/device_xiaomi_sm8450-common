@@ -800,6 +800,18 @@
       "Value": "300000"
     },
     {
+      "PowerHint": "CAMERA_LAUNCH",
+      "Node": "CPUBigPlusClusterMinFreq",
+      "Duration": 1200,
+      "Value": "1286400"
+    },
+    {
+      "PowerHint": "CAMERA_SHOT",
+      "Node": "CPUBWMinFreq",
+      "Duration": 500,
+      "Value": "1555000"
+    },
+    {
       "PowerHint": "TOUCH_DOWN",
       "Node": "CPULittleClusterMinFreq",
       "Duration": 100,
