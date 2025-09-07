@@ -884,6 +884,18 @@
       "Value": "0"
     },
     {
+      "PowerHint": "ROTATION",
+      "Node": "GPUMinFreq",
+      "Duration": 500,
+      "Value": "439000000"
+    },
+    {
+      "PowerHint": "ROTATION",
+      "Node": "CPUBWMinFreq",
+      "Duration": 500,
+      "Value": "1555000"
+    },
+    {
       "PowerHint": "Flipendo",
       "Node": "CPULittleClusterMaxFreq",
       "Duration": 0,
