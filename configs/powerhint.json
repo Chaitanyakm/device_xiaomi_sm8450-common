@@ -887,13 +887,13 @@
       "PowerHint": "ROTATION",
       "Node": "GPUMinFreq",
       "Duration": 500,
-      "Value": "439000000"
+      "Value": "364000000"
     },
     {
       "PowerHint": "ROTATION",
       "Node": "CPUBWMinFreq",
       "Duration": 500,
-      "Value": "1555000"
+      "Value": "547000"
     },
     {
       "PowerHint": "Flipendo",
