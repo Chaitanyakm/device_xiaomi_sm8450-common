@@ -848,6 +848,12 @@
       "Value": "547000"
     },
     {
+      "PowerHint": "DISPLAY_UPDATE_IMMINENT",
+      "Node": "GPUMinFreq",
+      "Duration": 80,
+      "Value": "364000000"
+    },
+    {
       "PowerHint": "THERMAL_EVENT",
       "Node": "CPUBWMinFreq",
       "Duration": 5000,
