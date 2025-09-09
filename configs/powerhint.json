@@ -392,6 +392,12 @@
       "Value": "515000000"
     },
     {
+      "PowerHint": "SUSTAINED_PERFORMANCE",
+      "Node": "ThermalProfile",
+      "Duration": 0,
+      "Value": "20"
+    },
+    {
       "PowerHint": "INTERACTION",
       "Node": "UclampTAMin",
       "Duration": 250,
@@ -515,7 +521,7 @@
       "PowerHint": "INTERACTIVE",
       "Node": "ThermalProfile",
       "Duration": 0,
-      "Value": "20"
+      "Value": "0"
     },
     {
       "PowerHint": "FIXED_PERFORMANCE",
