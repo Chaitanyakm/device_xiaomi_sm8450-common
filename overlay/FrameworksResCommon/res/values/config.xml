@@ -320,4 +320,8 @@
     <!-- Microns/ums (1000 um = 1mm) per pixel for the given device. If unspecified, UI that
          relies on this value will not be sized correctly. -->
     <item format="float" name="pixel_pitch" type="dimen">64.37</item>
+
+    <!-- Whether to briefly keep the display in ON state when transitioning from
+         DOZE_AOD_PAUSED to DOZE_AOD state. -->
+    <bool name="config_displayTurnsOnWhenResumingAod">true</bool>
 </resources>
