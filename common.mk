@@ -291,7 +291,6 @@ PRODUCT_PACKAGES += \
     WifiResCommon
 
 PRODUCT_PACKAGES += \
-    DialerResXiaomi \
     FrameworksResTarget \
     FrameworksResXiaomi \
     LineageResXiaomi \
