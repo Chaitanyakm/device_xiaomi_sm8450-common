@@ -105,6 +105,21 @@ blob_fixups: blob_fixups_user_type = {
         ),
     'system_ext/lib64/vendor.qti.hardware.qccsyshal@1.2-halimpl.so': blob_fixup()
         .replace_needed('libprotobuf-cpp-full.so', 'libprotobuf-cpp-full-21.7.so'),
+    (
+        'vendor/bin/poweropt-service',
+        'vendor/lib64/libaudiocloudctrl.so',
+        'vendor/lib64/libdpps.so',
+        'vendor/lib64/libsnapdragoncolor-manager.so',
+        'vendor/lib64/libapengine.so',
+        'vendor/lib64/libstandbyfeature.so',
+        'vendor/lib64/libpsmoptfeature.so',
+        'vendor/lib64/libpowercore.so',
+        'vendor/lib64/libpowercallback.so',
+        'vendor/lib64/libvideooptfeature.so',
+        'vendor/lib64/libvendorscenariopoweroptfeature.so',
+        'vendor/lib64/liblearningmodule.so',
+    ): blob_fixup()
+        .replace_needed('libtinyxml2.so', 'libtinyxml2-v34.so'),
 }  # fmt: skip
 
 module = ExtractUtilsModule(
