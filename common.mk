@@ -127,6 +127,10 @@ PRODUCT_COPY_FILES += \
 
 $(call soong_config_set,libcameraservice,ext_lib,libcameraservice_extension.xiaomi_sm8450)
 
+# Device-specific settings
+PRODUCT_PACKAGES += \
+    XiaomiParts
+
 # Display
 PRODUCT_PACKAGES += \
     android.hardware.graphics.mapper@4.0-impl-qti-display \
