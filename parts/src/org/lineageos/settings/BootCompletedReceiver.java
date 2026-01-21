@@ -78,7 +78,8 @@ public class BootCompletedReceiver extends BroadcastReceiver {
         DozeUtils.onBootCompleted(context);
 
         // Start Thermal Management Services
-        ThermalUtils.Companion.getInstance(context).startService();
+        ThermalUtils.getInstance(context).startService();
+
     }
 
     private void overrideHdrTypes(Context context) {
