@@ -1,0 +1,9 @@
+rw_dir_file(hal_power_default, proc)
+rw_dir_file(hal_power_default, sysfs_thermal)
+
+# Allow hal_power to access IThermal HAL
+allow hal_power_default hal_thermal_service:service_manager find;
+hal_client_domain(hal_power_default, hal_thermal)
+
+# Allow hal_power to access IStats service
+allow hal_power_default fwk_stats_service:service_manager find;
