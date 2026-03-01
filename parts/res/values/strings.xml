@@ -43,13 +43,6 @@
     <string name="thermal_reset">Reset to defaults</string>
     <string name="thermal_reset_message">Are you sure you want to reset thermal profile for all apps?</string>
 
-    <!-- Doze Strings -->
-    <string name="doze_brightness_low">Low brightness</string>
-    <string name="doze_brightness_high">High brightness</string>
-    <string name="doze_brightness_adaptive">Adaptive brightness</string>
-    <string name="doze_brightness_title">Doze brightness level</string>
-    <string name="doze_brightness_summary">Brightness level of doze pulse screen (% of max allowed brightness)</string>
-
     <!-- Clear Speaker -->
    <string name="clear_speaker_title">Clear speaker</string>
    <string name="clear_speaker_summary">Play a 30-second audio to clear the speaker</string>
