@@ -63,7 +63,6 @@ vendor/lib64/liblx-ar_util.so|fda56465f50f0aeb0c1dc0c79b5ef4f4d99d59ba
 vendor/lib64/liblx-osal.so|3d7a635c52f3317b64af5d68ff12f4cd72e818ae
 vendor/lib64/libmcs.so|b14a04a87b2db584c777d1839090ef92fb151796|a9974a86a0da8aa5a3816314670c4f9d95e5cf3a
 vendor/lib64/libpalclient.so|2f1d4f51dc70a3944cdc50521f4fb5148af2fe38
-vendor/lib64/libpal_net_if.so|0b29fc5571632ad576976902f0a3b0b5ffe8e779
 vendor/lib64/libqtigefar.so|9f9f0cd2506090d86dce45bdd21d09aba3b9005c
 vendor/lib64/libsndcardparser.so|aeae90a5c5d689edf199c870d9f38bfeb948776d
 vendor/lib64/libxlog.so|8b2e10f549df7b3c4ec1f4b10739d8d9e5a4a865
@@ -132,6 +131,7 @@ vendor/lib64/libmdsprpc.so
 vendor/lib64/libsdsprpc.so
 
 # CNE
+vendor/app/CACertService/CACertService.apk
 vendor/app/CneApp/CneApp.apk;REQUIRED=CneApp.libvndfwk_detect_jni.qti_vendor_symlink
 vendor/bin/cnd
 vendor/bin/qms
@@ -169,6 +169,7 @@ vendor/etc/cne/wqeclient/VZW/VZW_profile7.xml
 vendor/etc/default-permissions/com.qualcomm.qti.cne.xml
 vendor/etc/init/cnd.rc
 vendor/etc/init/qms.rc
+vendor/lib64/libcacertclient.so
 vendor/lib64/libcne.so
 vendor/lib64/libcneapiclient.so
 vendor/lib64/libcneoplookup.so
@@ -381,7 +382,6 @@ vendor/etc/init/android.hardware.gatekeeper@1.0-service-qti.rc
 vendor/lib64/hw/android.hardware.gatekeeper@1.0-impl-qti.so
 
 # GNSS - from ingot-user 14 UKQ1.240227.165 release-keys
-vendor/app/CACertService/CACertService.apk|ea18679b8a6cdf4f9f00b7fb5d7a86e12be38f23
 vendor/bin/edgnss-daemon|11e295ebe350de7312a2ab97f25ccbbae48ed8a4
 vendor/bin/loc_launcher|dbc5addc025360fd04dec5b024d476514a6f613f
 vendor/bin/lowi-server|0a8998f8190c282a14fed9e33691b54a2dc6d3e9
@@ -389,7 +389,6 @@ vendor/bin/mlid|ab9291752d37ae8165cb78a6a635d48f7a668c70
 vendor/bin/xtra-daemon|e4a632e4b1b6ac75e1921bcd0a17fd0450ccf906
 vendor/etc/init/loc-launcher.rc|2942e599cec7c3491aa170bf9606713ce3d07689
 vendor/etc/vintf/manifest/vendor.qti.gnss-service.xml|6a7f041e23b7ccbd039110260e8e7e2cfb2d7d3c
-vendor/lib64/libcacertclient.so|49e33d1e017d64365916ea824bc3dd8f9b0b5460
 vendor/lib64/libcdfw.so|de2c1c446f9242ffba7e66c4bbdd3110dd50b5de
 vendor/lib64/libcdfw_remote_api.so|ac13abd3be1a3056f4ec99875a86658af7869962
 vendor/lib64/libdataitems.so|633c823b52a6d8a9ab55e1c1f15bd306f1f360f1
@@ -412,6 +411,7 @@ vendor/lib64/liblocdiagiface.so|d7f1a5e5fc50fc60b1d07bebab3532f97b788118
 vendor/lib64/liblowi_client.so|65ed08928d01224d9d69e4520260c730b0f91eb3
 vendor/lib64/liblowi_common.so|85283ad9594dffd5c34741ebfd680ac154bd8b84
 vendor/lib64/liblowi_wifihal.so|f348c1a940e43a053dc18f46290c57e748935b0f
+vendor/lib64/libpal_net_if.so|c9e4bfc810ce90be4bab3f43a6a87dc523ae1a83
 vendor/lib64/libqppe.so|6cd36b618b3e50378f347316fcd11dffd0e4866e
 vendor/lib64/libsynergy_loc_api.so|884a2bd9cd9c0331c8c0cdb672b68257482c06b2
 vendor/lib64/libsys_info_cache.so|99b7796e09317215c4c8fd61359c2ceebcbe4dfe
