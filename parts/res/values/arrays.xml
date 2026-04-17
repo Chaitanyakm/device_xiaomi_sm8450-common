@@ -15,6 +15,7 @@
      limitations under the License.
 -->
 <resources>
+
     <!-- Must match co.aospa.keyhandler.FpDoubleTapHandler.handleEvent() -->
     <string-array name="fp_double_tap_action_entries">
         <item>@string/action_screenshot</item>

@@ -17,7 +17,7 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
     <!-- Xiaomi Settings -->
-    <string name="app_title">Xiaomi Settings</string>
+    <string name="device_parts_title">Xiaomi Settings</string>
     <string name="tile_add">Add tile</string>
     <string name="tile_added">Tile added</string>
     <string name="tile_not_added">Tile not added</string>

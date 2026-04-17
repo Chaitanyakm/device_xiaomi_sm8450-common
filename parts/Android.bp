@@ -1,6 +1,6 @@
 //
-// Copyright (C) 2017-2020 The LineageOS Project
-//
+// SPDX-FileCopyrightText: The LineageOS Project
+// SPDX-FileCopyrightText: Project Infinity X
 // SPDX-License-Identifier: Apache-2.0
 //
 
@@ -31,6 +31,7 @@ android_app {
         "androidx.compose.foundation_foundation",
         "androidx.compose.material3_material3",
         "androidx.compose.material_material-icons-core",
+        "androidx.compose.material_material-icons-extended",
         "androidx.compose.runtime_runtime",
         "androidx.compose.ui_ui",
         "androidx.lifecycle_lifecycle-viewmodel-compose",
@@ -50,13 +51,13 @@ android_app {
     },
 
     required: [
-        "privapp_whitelist_org.lineageos.settings.xml",
+        "privapp_whitelist_co.infinity.xparts.xml",
     ],
 }
 
 prebuilt_etc {
-    name: "privapp_whitelist_org.lineageos.settings.xml",
-    src: "permissions/privapp_whitelist_org.lineageos.settings.xml",
+    name: "privapp_whitelist_co.infinity.xparts.xml",
+    src: "permissions/privapp_whitelist_co.infinity.xparts.xml",
     sub_dir: "permissions",
     system_ext_specific: true,
 }
