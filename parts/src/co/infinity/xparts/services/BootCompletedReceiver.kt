@@ -13,6 +13,7 @@ import android.content.Intent
 import android.hardware.display.DisplayManager
 import android.view.Display
 import android.view.Display.HdrCapabilities
+import co.infinity.xparts.data.AuxCameraUtils
 import co.infinity.xparts.data.FpGestureUtils
 import co.infinity.xparts.data.SaturationUtils
 import co.infinity.xparts.data.ThermalUtils
@@ -53,6 +54,9 @@ class BootCompletedReceiver : BroadcastReceiver() {
     private fun startServices(context: Context) {
         Logging.i(TAG, "Starting services...")
 	
+        // Aux Camera Services
+        AuxCameraUtils.restore(context)
+
         // Thermal Services
         ThermalUtils.getInstance(context).startService()
 

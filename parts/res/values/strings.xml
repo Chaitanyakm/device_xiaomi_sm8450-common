@@ -82,4 +82,9 @@
     <string name="action_volume">Show volume panel</string>
     <string name="action_sleep">Turn off screen</string>
 
+    <!-- Aux Camera -->
+    <string name="aux_camera_title">Restrict Auxiliary Cameras</string>
+    <string name="aux_camera_summary">Hide auxiliary camera lenses from selected apps</string>
+    <string name="aux_camera_enable">Enable restrictions</string>
+    <string name="aux_camera_empty">No apps found</string>
 </resources>
