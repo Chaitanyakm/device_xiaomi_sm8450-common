@@ -110,6 +110,7 @@ $(call soong_config_set,libcameraservice,ext_lib,libcameraservice_extension.xiao
 
 # Device-specific settings
 PRODUCT_PACKAGES += \
+    KeyHandler \
     XiaomiParts
 
 # Display
@@ -133,9 +134,15 @@ PRODUCT_PACKAGES += \
     android.hardware.drm-service.clearkey
 
 # Fingerprint
+ifneq ($(TARGET_USES_MFP_DAEMON),true)
 PRODUCT_PACKAGES += \
     android.hardware.biometrics.fingerprint-service.xiaomi \
-    libudfpshandler:64
+    libudfpshandler
+endif
+
+PRODUCT_PACKAGES += \
+    vendor.xiaomi.hardware.fingerprintextension@1.0.vendor \
+    android.hardware.biometrics.fingerprint@2.1.vendor
 
 ifeq ($(TARGET_HAS_UDFPS),true)
 PRODUCT_PACKAGES += \
@@ -277,6 +284,7 @@ $(foreach sku_out, $(TARGET_COPY_OUT_NFC_SKU_PERMISSIONS), \
 PRODUCT_PACKAGES += \
     CarrierConfigResCommon \
     FrameworksResCommon \
+    LineageSdkKeyhandler \
     SettingsResCommon \
     SystemUIResCommon \
     TelephonyResCommon \

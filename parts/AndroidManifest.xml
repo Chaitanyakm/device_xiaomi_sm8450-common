@@ -28,6 +28,8 @@
     <uses-permission android:name="android.permission.ACCESS_SURFACE_FLINGER" />
     <uses-permission android:name="android.permission.INTERACT_ACROSS_USERS_FULL" />
     <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+    <uses-permission android:name="android.permission.DEVICE_POWER" />
+    <uses-permission android:name="android.permission.CAMERA_OPEN_CLOSE_LISTENER" />
     
     <uses-permission android:name="android.permission.WRITE_SECURE_SETTINGS" />
 
@@ -135,5 +137,27 @@
             </intent-filter>
         </service>
 
+        <!-- Gestures -->
+        <activity
+            android:name=".gestures.FpDoubleTapActivity"
+            android:label="@string/fp_double_tap_title"
+            android:theme="@style/Theme.SubSettingsBase"
+            android:enabled="@*android:bool/config_is_powerbutton_fps"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.android.settings.action.IA_SETTINGS" />
+            </intent-filter>
+            <meta-data
+                android:name="com.android.settings.category"
+                android:value="com.android.settings.category.ia.gestures" />
+            <meta-data
+                android:name="com.android.settings.summary_uri"
+                android:value="content://org.lineageos.settings.device.summary/fp_double_tap" />
+            </activity>
+
+            <provider
+                android:name=".SummaryProvider"
+                android:authorities="org.lineageos.settings.device.summary">
+            </provider>
     </application>
 </manifest>

@@ -32,6 +32,7 @@ import android.util.Log;
 import android.view.Display;
 import android.view.Display.HdrCapabilities;
 
+import org.lineageos.settings.gestures.GestureUtils;
 import org.lineageos.settings.thermal.ThermalUtils;
 
 public class BootCompletedReceiver extends BroadcastReceiver {
@@ -76,6 +77,8 @@ public class BootCompletedReceiver extends BroadcastReceiver {
         // Start Thermal Management Services
         ThermalUtils.getInstance(context).startService();
 
+        // Gesture: Double tap FPS
+        GestureUtils.onBootCompleted(context);
     }
 
     private void overrideHdrTypes(Context context) {
@@ -95,3 +98,4 @@ public class BootCompletedReceiver extends BroadcastReceiver {
         }
     }
 }
+
