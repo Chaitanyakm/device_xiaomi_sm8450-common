@@ -95,6 +95,11 @@ class ThermalUtils private constructor(
         FileUtils.writeLine(THERMAL_SCONFIG, THERMAL_STATE_DEFAULT)
     }
 
+    fun setIdleProfile() {
+        Logging.d(TAG, "setIdleProfile")
+        FileUtils.writeLine(THERMAL_SCONFIG, ThermalState.DEFAULT.config)
+    }
+
     fun setThermalProfile(packageName: String) {
         if (packageName.isEmpty()) {
             Logging.d(TAG, "setThermalProfile: packageName is empty")
@@ -119,9 +124,10 @@ class ThermalUtils private constructor(
             }
 
         return when {
+            GAMING_PACKAGES.contains(packageName) -> ThermalState.GAMING
             NAVIGATION_PACKAGES.contains(packageName) -> ThermalState.NAVIGATION
             VIDEO_CALL_PACKAGES.contains(packageName) -> ThermalState.VIDEOCALL
-            BENCHMARKING_APPS.contains(packageName) -> ThermalState.BENCHMARK
+            BENCHMARKING_PACKAGES.contains(packageName) -> ThermalState.BENCHMARK
             getDefaultDialerApplication(context) == packageName -> ThermalState.DIALER
             isBrowserApp(context, packageName, UserHandle.myUserId()) -> ThermalState.BROWSER
             isCameraApp(packageName) -> ThermalState.CAMERA
@@ -147,7 +153,7 @@ class ThermalUtils private constructor(
         val prefix: String,
 	@param:StringRes val label: Int
     ) {
-        BENCHMARK(0, "20", "thermal.benchmark=", R.string.thermal_benchmark),
+        BENCHMARK(0, "10", "thermal.benchmark=", R.string.thermal_benchmark),
         BROWSER(1, "11", "thermal.browser=", R.string.thermal_browser),
         CAMERA(2, "12", "thermal.camera=", R.string.thermal_camera),
         DIALER(3, "8", "thermal.dialer=", R.string.thermal_dialer),
@@ -177,7 +183,7 @@ class ThermalUtils private constructor(
             "com.microsoft.teams",
             "com.skype.raider",
         )
-        private val BENCHMARKING_APPS = arrayOf(
+        private val BENCHMARKING_PACKAGES = arrayOf(
             "com.primatelabs.geekbench5",
             "com.primatelabs.geekbench6",
             "com.antutu.ABenchMark",
@@ -186,6 +192,15 @@ class ThermalUtils private constructor(
             "com.glbenchmark.glbenchmark27",
             "com.texts.throttlebench",
             "skynet.cputhrottlingtest",
+        )
+        private val GAMING_PACKAGES = arrayOf(
+            "com.tencent.ig",
+            "com.pubg.imobile",
+            "com.dts.freefireth",
+            "com.activision.callofduty.shooter",
+            "com.riotgames.league.wildrift",
+            "com.mojang.minecraftpe",
+            "com.roblox.client",
         )
 
         @Volatile private var instance: ThermalUtils? = null
