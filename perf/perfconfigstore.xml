@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     SPDX-FileCopyrightText: The LineageOS Project
+     SPDX-License-Identifier: Apache-2.0
+-->
+<PerfConfigsStore>
+    <PerfConfigs>
+        <Prop Name="vendor.perf.fps_switch_hyst_time_secs" Value="10" />
+    </PerfConfigs>
+</PerfConfigsStore>
