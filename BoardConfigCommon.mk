@@ -65,6 +65,9 @@ $(call soong_config_set, xiaomi_hardware_biometrics, run_32bit, false)
 BOARD_VENDOR_QCOM_GPS_LOC_API_HARDWARE := default
 
 # Kernel
+TARGET_KERNEL_CLANG_VERSION := r563880c
+TARGET_KERNEL_CLANG_PATH := $(abspath .)/prebuilts/clang/host/linux-x86/clang-$(TARGET_KERNEL_CLANG_VERSION)
+
 BOARD_INCLUDE_DTB_IN_BOOTIMG := true
 BOARD_RAMDISK_USE_LZ4 := true
 BOARD_USES_GENERIC_KERNEL_IMAGE := true
