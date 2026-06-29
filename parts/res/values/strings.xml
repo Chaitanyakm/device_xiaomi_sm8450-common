@@ -43,29 +43,9 @@
     <string name="thermal_reset">Reset to defaults</string>
     <string name="thermal_reset_message">Are you sure you want to reset thermal profile for all apps?</string>
 
-    <!-- Clear Speaker -->
-   <string name="clear_speaker_title">Clear speaker</string>
-   <string name="clear_speaker_summary">Play a 30-second audio to clear the speaker</string>
-   <string name="clear_speaker_description">Run this feature once or twice if you find that your speaker is lightly blocked by dust. Set media volume to maximum.\n\nIf the speaker is blocked heavily, run this feature 2-5 times while shaking your device with the speaker facing downwards.</string>
-
-    <!-- Saturation -->
-    <string name="saturation_title">Display Saturation</string>
-    <string name="saturation_summary">Control the saturation level of the display</string>
-    <string name="saturation_footer_summary">Changing the color mode in display settings will override the saturation level, requiring it to be reapplied.</string>
-
-    <!-- Image preview -->
-    <string name="image_preview_content_description">Preview</string>
-    <string name="image_preview_next_page_content_description">Next</string>
-    <string name="image_preview_previous_page_content_description">Previous</string>
-
-    <!-- Custom seekbar -->
-    <string name="custom_seekbar_value">Value: <xliff:g id="v">%s</xliff:g></string>
-    <string name="custom_seekbar_default_value">by default</string>
-    <string name="custom_seekbar_default_value_to_set">Default value: <xliff:g id="v">%s</xliff:g>\nLong tap to set</string>
-    <string name="custom_seekbar_default_value_is_set">Default value is set</string>
-
     <!-- Gestures: double tap on fingerprint sensor -->
     <string name="fp_double_tap_title">Double tap on fingerprint sensor</string>
+    <string name="fp_gestures_title">Fingerprint Gestures</string>
     <string name="fp_double_tap_summary_on">On / %1$s</string>
     <string name="fp_double_tap_summary_off">Off</string>
     <string name="fp_double_tap_footer">This gesture works only after the device is unlocked.</string>
@@ -87,4 +67,23 @@
     <string name="aux_camera_summary">Hide auxiliary camera lenses from selected apps</string>
     <string name="aux_camera_enable">Enable restrictions</string>
     <string name="aux_camera_empty">No apps found</string>
+
+    <!-- Performance Monitor -->
+    <string name="perfmon_title">Performance Monitor</string>
+    <string name="perfmon_summary">Display real-time hardware metrics on screen</string>
+    <string name="perfmon_enable">Enable Performance Monitor</string>
+    <string name="perfmon_appearance">Appearance</string>
+    <string name="perfmon_metrics">Metrics Display</string>
+    <string name="perfmon_show_fps">Show FPS</string>
+    <string name="perfmon_show_cpu">Show CPU Usage</string>
+    <string name="perfmon_show_cpu_temp">Show CPU Temp</string>
+    <string name="perfmon_show_cpu_clusters">Expand CPU Clusters (Freqs)</string>
+    <string name="perfmon_show_gpu">Show GPU Usage</string>
+    <string name="perfmon_show_gpu_temp">Show GPU Temp</string>
+    <string name="perfmon_show_gpu_speed">Show GPU Speed</string>
+    <string name="perfmon_show_ram">Show RAM Usage</string>
+    <string name="perfmon_compact_mode">Compact Mode</string>
+    <string name="perfmon_bg_transparency">Background Transparency</string>
+    <string name="perfmon_text_size">Text Size</string>
+    <string name="perfmon_touch_passthrough">Touch Passthrough</string>
 </resources>

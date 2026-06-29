@@ -11,8 +11,8 @@ import android.content.ComponentName
 import android.content.Intent
 import android.os.Build
 import android.os.Bundle
-import co.infinity.xparts.ui.saturation.SaturationActivity
-import co.infinity.xparts.ui.saturation.SaturationTileService
+import co.infinity.xparts.ui.perfmon.PerfMonTileService
+import co.infinity.xparts.ui.perfmon.PerfMonComposeActivity
 
 class TilePreferencesActivity : Activity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -27,8 +27,8 @@ class TilePreferencesActivity : Activity() {
 
         val className = componentName?.className
 
-        val targetClass = when (className) {
-            SaturationTileService::class.java.name -> SaturationActivity::class.java
+        val targetClass: Class<*>? = when (className) {
+            PerfMonTileService::class.java.name -> PerfMonComposeActivity::class.java
             else -> null
         }
 

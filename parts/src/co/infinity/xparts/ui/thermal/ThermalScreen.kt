@@ -6,18 +6,10 @@
 
 package co.infinity.xparts.ui.thermal
 
-import android.graphics.drawable.Drawable
 import android.view.HapticFeedbackConstants
-import android.widget.ImageView
 import android.widget.Toast
-import androidx.compose.animation.AnimatedVisibility
+import androidx.compose.animation.*
 import androidx.compose.animation.core.*
-import androidx.compose.animation.expandVertically
-import androidx.compose.animation.fadeIn
-import androidx.compose.animation.fadeOut
-import androidx.compose.animation.slideInVertically
-import androidx.compose.animation.shrinkVertically
-import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
@@ -29,8 +21,6 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
-import androidx.compose.material.icons.filled.Check
-import androidx.compose.material.icons.filled.Close
 import androidx.compose.material.icons.filled.Refresh
 import androidx.compose.material.icons.rounded.*
 import androidx.compose.material3.*
@@ -39,12 +29,6 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.scale
-import androidx.compose.ui.geometry.Offset
-import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.Path
-import androidx.compose.ui.graphics.PathMeasure
-import androidx.compose.ui.graphics.StrokeCap
-import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.input.nestedscroll.nestedScroll
@@ -55,12 +39,11 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.viewinterop.AndroidView
 import co.infinity.xparts.R
 import co.infinity.xparts.data.ThermalUtils.ThermalState
+import co.infinity.xparts.ui.components.AppIcon
+import co.infinity.xparts.ui.components.MainSwitchBar
 import kotlinx.coroutines.delay
-import kotlinx.coroutines.launch
-import kotlin.math.sin
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -85,10 +68,7 @@ fun ThermalScreen(
                 title = { Text(stringResource(R.string.thermal_title)) },
                 navigationIcon = {
                     IconButton(onClick = onBackPressed) {
-                        Icon(
-                            imageVector = Icons.AutoMirrored.Filled.ArrowBack,
-                            contentDescription = "Navigate back"
-                        )
+                        Icon(imageVector = Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "Navigate back")
                     }
                 },
                 actions = {
@@ -99,10 +79,7 @@ fun ThermalScreen(
                         },
                         enabled = uiState.isEnabled && uiState.apps.isNotEmpty()
                     ) {
-                        Icon(
-                            imageVector = Icons.Default.Refresh,
-                            contentDescription = stringResource(R.string.thermal_reset)
-                        )
+                        Icon(imageVector = Icons.Default.Refresh, contentDescription = stringResource(R.string.thermal_reset))
                     }
                 },
                 scrollBehavior = scrollBehavior
@@ -114,68 +91,22 @@ fun ThermalScreen(
                 .fillMaxSize()
                 .padding(paddingValues)
         ) {
-            // Master Switch Card
-            Card(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(horizontal = 16.dp, vertical = 8.dp),
-                elevation = CardDefaults.cardElevation(defaultElevation = 2.dp),
-                colors = CardDefaults.cardColors(
-                    containerColor = MaterialTheme.colorScheme.surfaceVariant
-                )
-            ) {
-                Row(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(16.dp),
-                    horizontalArrangement = Arrangement.SpaceBetween,
-                    verticalAlignment = Alignment.CenterVertically
-                ) {
-                    Column(modifier = Modifier.weight(1f)) {
-                        Text(
-                            text = stringResource(R.string.thermal_enable),
-                            style = MaterialTheme.typography.titleMedium,
-                            color = MaterialTheme.colorScheme.onSurfaceVariant
-                        )
-                        Text(
-                            text = stringResource(R.string.thermal_summary),
-                            style = MaterialTheme.typography.bodySmall,
-                            color = MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = 0.8f)
-                        )
-                    }
-                    
-                    Switch(
-                        checked = uiState.isEnabled,
-                        onCheckedChange = { 
-                            view.performHapticFeedback(HapticFeedbackConstants.CONFIRM)
-                            viewModel.toggleThermalEnabled(it) 
-                        },
-                        thumbContent = {
-                            Icon(
-                                imageVector = if (uiState.isEnabled) Icons.Filled.Check else Icons.Filled.Close,
-                                contentDescription = null,
-                                modifier = Modifier.size(SwitchDefaults.IconSize),
-                            )
-                        }
-                    )
-                }
-            }
+            
+            MainSwitchBar(
+                title = stringResource(R.string.thermal_enable),
+                summary = stringResource(R.string.thermal_summary),
+                checked = uiState.isEnabled,
+                onCheckedChange = { viewModel.toggleThermalEnabled(it) }
+            )
             
             AnimatedVisibility(
                 visible = uiState.isEnabled,
-                // UPDATED: Bouncy slide-in from TOP
                 enter = slideInVertically(
-                    initialOffsetY = { -it }, // Start from top (negative height)
-                    animationSpec = spring(
-                        stiffness = 1200f, // Fast
-                        dampingRatio = 0.6f // Bouncy
-                    )
+                    initialOffsetY = { -it }, 
+                    animationSpec = spring(stiffness = 1200f, dampingRatio = 0.6f)
                 ) + expandVertically(
                     expandFrom = Alignment.Top,
-                    animationSpec = spring(
-                        stiffness = 1200f,
-                        dampingRatio = 0.6f
-                    )
+                    animationSpec = spring(stiffness = 1200f, dampingRatio = 0.6f)
                 ) + fadeIn(),
                 exit = shrinkVertically() + fadeOut()
             ) {
@@ -191,10 +122,7 @@ fun ThermalScreen(
                     
                     when {
                         uiState.isLoading -> {
-                            Box(
-                                modifier = Modifier.fillMaxSize(),
-                                contentAlignment = Alignment.Center
-                            ) {
+                            Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
                                 CircularProgressIndicator()
                             }
                         }
@@ -241,12 +169,7 @@ fun ThermalScreen(
                     view.performHapticFeedback(HapticFeedbackConstants.CONFIRM)
                     
                     val profileName = context.getString(newState.label)
-                    Toast.makeText(
-                        context, 
-                        "Applied $profileName to ${currentApp.label}", 
-                        Toast.LENGTH_SHORT
-                    ).show()
-
+                    Toast.makeText(context, "Applied $profileName to ${currentApp.label}", Toast.LENGTH_SHORT).show()
                     viewModel.updateAppThermalState(currentApp.packageName, newState)
                     selectedApp = null 
                 }
@@ -278,14 +201,10 @@ fun AppThermalItem(
             .padding(horizontal = 16.dp, vertical = 4.dp)
             .clickable(onClick = onClick),
         elevation = CardDefaults.cardElevation(defaultElevation = 2.dp),
-        colors = CardDefaults.cardColors(
-            containerColor = MaterialTheme.colorScheme.surfaceVariant
-        )
+        colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surfaceVariant)
     ) {
         Row(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(16.dp),
+            modifier = Modifier.fillMaxWidth().padding(16.dp),
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.SpaceBetween
         ) {
@@ -293,11 +212,7 @@ fun AppThermalItem(
                 modifier = Modifier.weight(1f),
                 verticalAlignment = Alignment.CenterVertically
             ) {
-                AppIcon(
-                    drawable = app.icon,
-                    contentDescription = app.label,
-                    modifier = Modifier.size(40.dp)
-                )
+                AppIcon(drawable = app.icon, contentDescription = app.label, modifier = Modifier.size(40.dp))
                 Spacer(modifier = Modifier.width(16.dp))
                 Column {
                     Text(
@@ -362,28 +277,14 @@ fun ThermalProfileGridSheet(
             .graphicsLayer { this.alpha = alpha }
     ) {
         Row(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(horizontal = 24.dp, vertical = 8.dp),
+            modifier = Modifier.fillMaxWidth().padding(horizontal = 24.dp, vertical = 8.dp),
             verticalAlignment = Alignment.CenterVertically
         ) {
-            AppIcon(
-                drawable = currentApp.icon, 
-                contentDescription = null, 
-                modifier = Modifier.size(32.dp)
-            )
+            AppIcon(drawable = currentApp.icon, contentDescription = null, modifier = Modifier.size(32.dp))
             Spacer(modifier = Modifier.width(16.dp))
             Column {
-                Text(
-                    text = currentApp.label,
-                    style = MaterialTheme.typography.titleMedium,
-                    fontWeight = FontWeight.SemiBold
-                )
-                Text(
-                    text = stringResource(R.string.thermal_title),
-                    style = MaterialTheme.typography.labelSmall,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant
-                )
+                Text(text = currentApp.label, style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.SemiBold)
+                Text(text = stringResource(R.string.thermal_title), style = MaterialTheme.typography.labelSmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
             }
         }
 
@@ -394,9 +295,7 @@ fun ThermalProfileGridSheet(
             contentPadding = PaddingValues(horizontal = 16.dp),
             verticalArrangement = Arrangement.spacedBy(12.dp),
             horizontalArrangement = Arrangement.spacedBy(12.dp),
-            modifier = Modifier
-                .fillMaxWidth()
-                .heightIn(max = sheetHeight)
+            modifier = Modifier.fillMaxWidth().heightIn(max = sheetHeight)
         ) {
             items(ThermalState.values()) { state ->
                 ThermalGridItem(
@@ -422,15 +321,8 @@ fun ThermalGridItem(
         animationSpec = spring(stiffness = Spring.StiffnessHigh)
     )
 
-    val containerColor = if (isSelected) 
-        MaterialTheme.colorScheme.primaryContainer 
-    else 
-        MaterialTheme.colorScheme.surfaceVariant
-
-    val contentColor = if (isSelected)
-        MaterialTheme.colorScheme.onPrimaryContainer
-    else
-        MaterialTheme.colorScheme.onSurfaceVariant
+    val containerColor = if (isSelected) MaterialTheme.colorScheme.primaryContainer else MaterialTheme.colorScheme.surfaceVariant
+    val contentColor = if (isSelected) MaterialTheme.colorScheme.onPrimaryContainer else MaterialTheme.colorScheme.onSurfaceVariant
 
     Column(
         modifier = Modifier
@@ -442,12 +334,7 @@ fun ThermalGridItem(
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center
     ) {
-        Icon(
-            imageVector = getIconForState(state),
-            contentDescription = null,
-            tint = contentColor,
-            modifier = Modifier.size(30.dp)
-        )
+        Icon(imageVector = getIconForState(state), contentDescription = null, tint = contentColor, modifier = Modifier.size(30.dp))
         Spacer(modifier = Modifier.height(8.dp))
         Text(
             text = stringResource(state.label),
@@ -496,29 +383,8 @@ fun ResetConfirmationDialog(
 }
 
 @Composable
-fun AppIcon(
-    drawable: Drawable,
-    contentDescription: String?,
-    modifier: Modifier = Modifier
-) {
-    AndroidView(
-        factory = { context ->
-            ImageView(context).apply {
-                scaleType = ImageView.ScaleType.FIT_CENTER
-                setImageDrawable(drawable)
-                this.contentDescription = contentDescription
-            }
-        },
-        modifier = modifier
-    )
-}
-
-@Composable
 private fun ErrorState(error: String) {
-    Box(
-        modifier = Modifier.fillMaxSize(),
-        contentAlignment = Alignment.Center
-    ) {
+    Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
         Text(
             text = "Error: $error",
             style = MaterialTheme.typography.bodyMedium,
@@ -531,27 +397,11 @@ private fun ErrorState(error: String) {
 
 @Composable
 private fun EmptyState() {
-    Box(
-        modifier = Modifier.fillMaxSize(),
-        contentAlignment = Alignment.Center
-    ) {
-        Column(
-            horizontalAlignment = Alignment.CenterHorizontally,
-            modifier = Modifier.padding(32.dp)
-        ) {
-            Text(
-                text = "No apps found",
-                style = MaterialTheme.typography.titleMedium,
-                color = MaterialTheme.colorScheme.onSurfaceVariant,
-                textAlign = TextAlign.Center
-            )
+    Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
+        Column(horizontalAlignment = Alignment.CenterHorizontally, modifier = Modifier.padding(32.dp)) {
+            Text(text = "No apps found", style = MaterialTheme.typography.titleMedium, color = MaterialTheme.colorScheme.onSurfaceVariant, textAlign = TextAlign.Center)
             Spacer(modifier = Modifier.height(8.dp))
-            Text(
-                text = "Install some apps to manage thermal profiles",
-                style = MaterialTheme.typography.bodySmall,
-                color = MaterialTheme.colorScheme.onSurfaceVariant,
-                textAlign = TextAlign.Center
-            )
+            Text(text = "Install some apps to manage thermal profiles", style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant, textAlign = TextAlign.Center)
         }
     }
 }

@@ -1,3 +1,4 @@
--keep class org.lineageos.settings.doze.* {
-  *;
+# Keep native methods so JNI can find them
+-keepclasseswithmembernames,includedescriptorclasses class * {
+    native <methods>;
 }

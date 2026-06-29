@@ -48,3 +48,10 @@ allow devicesettings_app {
 get_prop(devicesettings_app, settingslib_prop)
 set_prop(devicesettings_app, aux_camera_control_prop)
 get_prop(devicesettings_app, aux_camera_control_prop)
+
+allow devicesettings_app sysfs_devices_system_cpu:dir search;
+allow devicesettings_app sysfs_devices_system_cpu:file r_file_perms;
+
+allow devicesettings_app proc_stat:file r_file_perms;
+
+r_dir_file(devicesettings_app, sysfs_thermal)

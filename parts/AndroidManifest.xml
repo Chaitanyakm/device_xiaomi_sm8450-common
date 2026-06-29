@@ -33,6 +33,8 @@
     <uses-permission android:name="android.permission.CAMERA_OPEN_CLOSE_LISTENER" />
     <uses-permission android:name="android.permission.WRITE_SECURE_SETTINGS" />
     <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
 
     <uses-sdk
         android:minSdkVersion="24"
@@ -100,47 +102,38 @@
             android:name=".services.ThermalService"
             android:permission="ThermalService" />
 
-        <!-- ClearSpeaker activity -->
+        <!-- Performance Monitor -->
         <activity
-            android:name=".ui.speaker.ClearSpeakerActivity"
-            android:label="@string/clear_speaker_title"
-            android:theme="@android:style/Theme.NoTitleBar"
+            android:name=".ui.perfmon.PerfMonComposeActivity"
+            android:label="@string/perfmon_title"
+            android:icon="@drawable/ic_perfmon_settings"
+            android:theme="@android:style/Theme.DeviceDefault.NoActionBar"
             android:exported="true">
             <intent-filter>
                 <action android:name="com.android.settings.action.IA_SETTINGS" />
             </intent-filter>
             <meta-data
                 android:name="com.android.settings.category"
-                android:value="com.android.settings.category.ia.sound" />
+                android:value="com.android.settings.category.ia.system" />
             <meta-data
                 android:name="com.android.settings.summary"
-                android:resource="@string/clear_speaker_summary" />
+                android:resource="@string/perfmon_summary" />
+            <meta-data
+                android:name="com.android.settings.icon"
+                android:resource="@drawable/ic_perfmon_settings" />
         </activity>
 
-        <!-- Display Saturation activity -->
-        <activity
-            android:name=".ui.saturation.SaturationActivity"
-            android:label="@string/saturation_title"
-            android:theme="@android:style/Theme.NoTitleBar"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="com.android.settings.action.IA_SETTINGS" />
-            </intent-filter>
-            <meta-data
-                android:name="com.android.settings.category"
-                android:value="com.android.settings.category.ia.display" />
-            <meta-data
-                android:name="com.android.settings.summary"
-                android:resource="@string/saturation_summary" />
-        </activity>
-
-        <!-- Display Saturation Tile activity -->
         <service
-            android:name=".services.SaturationTileService"
-            android:label="@string/saturation_title"
-            android:icon="@drawable/ic_saturation_tile"
-            android:exported="true"
-            android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
+            android:name=".services.PerfMonService"
+            android:exported="false"
+            android:foregroundServiceType="specialUse" />
+
+        <service
+            android:name=".ui.perfmon.PerfMonTileService"
+            android:icon="@drawable/ic_perfmon_settings"
+            android:label="@string/perfmon_title"
+            android:permission="android.permission.BIND_QUICK_SETTINGS_TILE"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.service.quicksettings.action.QS_TILE" />
             </intent-filter>
@@ -183,6 +176,5 @@
                 <action android:name="android.service.quicksettings.action.QS_TILE_PREFERENCES" />
             </intent-filter>
         </activity>
-
     </application>
 </manifest>

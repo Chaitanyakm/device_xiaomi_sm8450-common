@@ -11,11 +11,14 @@ import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
 import android.hardware.display.DisplayManager
+import android.os.Handler
+import android.os.Looper
+import android.provider.Settings
 import android.view.Display
 import android.view.Display.HdrCapabilities
 import co.infinity.xparts.data.AuxCameraUtils
 import co.infinity.xparts.data.FpGestureUtils
-import co.infinity.xparts.data.SaturationUtils
+import co.infinity.xparts.data.PerfMonUtils
 import co.infinity.xparts.data.ThermalUtils
 import co.infinity.xparts.utils.Logging
 
@@ -38,8 +41,10 @@ class BootCompletedReceiver : BroadcastReceiver() {
             // 2. Override HDR Types
             overrideHdrTypes(context)
             
-            // 3. Restore Saturation
-            SaturationUtils.getInstance(context).restoreSaturation()
+            // 3. Airplane Mode
+            Handler(Looper.getMainLooper()).postDelayed({
+            toggleAirplaneMode(context)
+            }, 5000)
 
         } catch (e: Exception) {
             Logging.e(TAG, "Error during locked boot completed processing", e)
@@ -59,6 +64,9 @@ class BootCompletedReceiver : BroadcastReceiver() {
 
         // Thermal Services
         ThermalUtils.getInstance(context).startService()
+
+        // Performance Monitor Services
+        PerfMonUtils.getInstance(context).startServiceIfEnabled()
 
         // Fingerprint Gestures
         if (FpGestureUtils.isAvailable(context) && FpGestureUtils.isEnabled(context)) {
@@ -87,6 +95,14 @@ class BootCompletedReceiver : BroadcastReceiver() {
         }
     }
 
+private fun toggleAirplaneMode(context: Context) {
+    Settings.Global.putInt(context.contentResolver, Settings.Global.AIRPLANE_MODE_ON, 1)
+    context.sendBroadcast(Intent(Intent.ACTION_AIRPLANE_MODE_CHANGED).putExtra("state", true))
+    Handler(Looper.getMainLooper()).postDelayed({
+        Settings.Global.putInt(context.contentResolver, Settings.Global.AIRPLANE_MODE_ON, 0)
+        context.sendBroadcast(Intent(Intent.ACTION_AIRPLANE_MODE_CHANGED).putExtra("state", false))
+    }, 500)
+}
     companion object {
         private const val TAG = "BootCompletedReceiver"
     }

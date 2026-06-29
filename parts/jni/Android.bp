@@ -1,0 +1,15 @@
+cc_library_shared {
+    name: "libperfmon_jni",
+    srcs: ["perfmon_jni.c"],
+    header_libs: ["jni_headers"],
+    shared_libs: ["liblog"],
+    sdk_version: "current",
+    cflags: [
+        "-Wall",
+        "-Werror",
+        "-O3",
+        "-flto",
+        "-fvisibility=hidden",
+        "-fno-exceptions",
+    ],
+}
