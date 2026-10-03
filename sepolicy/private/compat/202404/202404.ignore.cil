@@ -6,5 +6,4 @@
 (typeattributeset new_objects
   ( new_objects
     aux_camera_control_prop
-    devicesettings_app
     settingslib_prop))

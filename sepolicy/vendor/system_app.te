@@ -1,7 +1,18 @@
-allow system_app sysfs_thermal:file write;
+# Thermal
 allow system_app sysfs_thermal:file rw_file_perms;
-allow system_app hal_mlipay_hwservice:hwservice_manager find;
 
+# Battery
+allow system_app vendor_sysfs_battery_supply:dir search;
+allow system_app vendor_sysfs_battery_supply:file r_file_perms;
+
+# Graphics / KGSL
+allow system_app vendor_sysfs_graphics:dir search;
+allow system_app vendor_sysfs_graphics:file rw_file_perms;
+allow system_app vendor_sysfs_kgsl:dir search;
+allow system_app vendor_sysfs_kgsl:{ file lnk_file } rw_file_perms;
+allow system_app vendor_sysfs_kgsl_gpuclk:file r_file_perms;
+
+allow system_app hal_mlipay_hwservice:hwservice_manager find;
 binder_call(system_app, hal_mlipay_default)
 allow system_app hal_xiaomi_fingerprint_hwservice:hwservice_manager find;
 binder_call(system_app, hal_fingerprint_default)
